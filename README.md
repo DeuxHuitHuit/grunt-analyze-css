@@ -13,6 +13,24 @@ This plugin requires Grunt ^0.4.0
 
 *Run this task with the `grunt analyzecss` command.*
 
+### Example
+
+````javascript
+grunt.initConfig({
+    analyzecss: {
+        prod: {
+            sources: ['stylesheet.css']
+        },
+        options: {
+            outputMetrics: 'error',
+            thresholds: {
+                
+            }  
+        }
+    }
+});
+````
+
 ## Options
 
 These are the possible config values. The format is `optionName: 'defaultValue'`.
