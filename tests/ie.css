@@ -1,0 +1,8 @@
+.ie {
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+* html {
+    display: block;
+}

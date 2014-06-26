@@ -5,9 +5,10 @@ module.exports = function (grunt) {
     grunt.initConfig({
         analyzecss: {
             prod: {
-                sources: ['bootstrap.css']
+                sources: ['empty.css', 'bootstrap.css', 'ie.css']
             },
             options: {
+                outputMetrics: 'error',
                 thresholds: {
                     
                 }  
