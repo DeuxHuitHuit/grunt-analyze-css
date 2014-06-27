@@ -5,7 +5,12 @@ module.exports = function (grunt) {
     grunt.initConfig({
         analyzecss: {
             prod: {
-                sources: ['empty.css', 'bootstrap.css', 'ie.css']
+                sources: [
+                    'empty.css',
+                    'bootstrap.css',
+                    'ie.css',
+                    'symphony.css'
+                ]
             },
             options: {
                 outputMetrics: 'error',
