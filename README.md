@@ -82,6 +82,13 @@ ouput to set a cap on output by usign 'warn' or 'error'.
 Possible values:
 > true, false, 'warn', 'error'
 
+### softFail: false
+
+Prevents the grunt task to be halted if this task failed.
+
+Possible values:
+> true, false
+
 ### thresholds: { ... }
 
 This object should contains all the maximum values allowed for each metric.
