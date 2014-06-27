@@ -24,6 +24,7 @@ module.exports = function (grunt) {
       error: 0.8,
       padLimit: 40,
       outputMetrics: false, // can be 'warn' or 'error'
+      softFail: false,
       thresholds: { // all values are maximum values
         redundantBodySelectors: 0,
         comments: 1,
@@ -90,7 +91,7 @@ module.exports = function (grunt) {
     var end = function () {
         grunt.log.writeln();
         if (hasErrors) {
-            grunt.fail.warn('Done, with errors.');
+            grunt[options.softFail ? 'log' : 'fail'].warn('Done, with errors.');
         } else {
             grunt.log.ok('Done.'); 
         }
