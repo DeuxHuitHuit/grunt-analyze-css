@@ -96,7 +96,7 @@ module.exports = function (grunt) {
             grunt.log.ok('Done.'); 
         }
         grunt.log.writeln();
-        return hasErrors;
+        done();
     };
     
     var getChalks = function (value) {
@@ -183,6 +183,6 @@ module.exports = function (grunt) {
                nextFileObj();
            });
         });
-    }, end, done);
+    }, end);
 });
 };
