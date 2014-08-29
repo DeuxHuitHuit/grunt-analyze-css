@@ -1,4 +1,4 @@
-# grunt-contrib-analyze-css  - v0.1.0
+# grunt-contrib-analyze-css  - v0.1.1
 
 > Grunt task that analyze your css with [analyze-css](https://github.com/macbre/analyze-css) 
 and compare the results to a user-defined benchmark.
