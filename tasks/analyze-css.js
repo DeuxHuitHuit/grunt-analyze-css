@@ -25,6 +25,7 @@ module.exports = function (grunt) {
       padLimit: 40,
       outputMetrics: false, // can be 'warn' or 'error'
       softFail: false,
+      showDuplicateSelectors: false,
       thresholds: { // all values are maximum values
         redundantBodySelectors: 0,
         comments: 1,
@@ -179,6 +180,14 @@ module.exports = function (grunt) {
                 nextFileObj();
                 return;
                }
+
+               if(options.showDuplicateSelectors === true) {
+                 var duplicates = results.offenders.duplicatedSelectors;
+
+                 if(duplicates !== undefined && duplicates !== null){
+                   console.log(duplicates);
+                 }
+              }
                analyzeResults(file, results);
                nextFileObj();
            });
