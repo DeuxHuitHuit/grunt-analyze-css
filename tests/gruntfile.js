@@ -14,13 +14,14 @@ module.exports = function (grunt) {
             },
             options: {
                 outputMetrics: 'error',
+                showDuplicateSelectors: true,
                 thresholds: {
-                    
-                }  
+
+                }
             }
         }
     });
-    
+
     grunt.loadTasks('../tasks');
 
     grunt.registerTask('default', ['analyzecss']);

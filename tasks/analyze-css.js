@@ -7,7 +7,7 @@
  * Licensed under the MIT license.
  * http://deuxhuithuit.mit-license.org
  */
- 
+
 var fs = require('fs');
 var path = require('path');
 var async = require('async');
@@ -16,7 +16,7 @@ var chalk = require('chalk');
 
 module.exports = function (grunt) {
   'use strict';
-  
+
   var defaults = {
       encoding: 'utf-8', // encoding to read files
       analyzecss: {}, // analyze-css options
@@ -25,6 +25,7 @@ module.exports = function (grunt) {
       padLimit: 40,
       outputMetrics: false, // can be 'warn' or 'error'
       softFail: false,
+      showDuplicateSelectors: false,
       thresholds: { // all values are maximum values
         redundantBodySelectors: 0,
         comments: 1,
@@ -57,18 +58,18 @@ module.exports = function (grunt) {
         declarations: 2000
       }
   };
-  
+
   grunt.registerMultiTask('analyzecss', 'Analyze your css', function() {
     var done = this.async();
     var analyzer = require( 'analyze-css');
     var options = this.options(defaults);
     var sources = this.data.sources;
     var hasErrors = false;
-    
+
     // fix thresholds
     options.thresholds = options.thresholds || {};
     _.defaults(options.thresholds, defaults.thresholds);
-    
+
     //console.dir(this);
     //console.dir(options);
     if (!sources || sources.length < 1) {
@@ -76,7 +77,7 @@ module.exports = function (grunt) {
       return;
     }
     //console.dir(sources);
-    
+
     var pad = function (s, limit, right) {
         if (s === undefined) {
             s = '';
@@ -87,36 +88,36 @@ module.exports = function (grunt) {
         }
         return s;
     };
-    
+
     var end = function () {
         grunt.log.writeln();
         if (hasErrors) {
             grunt[options.softFail ? 'log' : 'fail'].warn('Done, with errors.');
         } else {
-            grunt.log.ok('Done.'); 
+            grunt.log.ok('Done.');
         }
         grunt.log.writeln();
         done();
     };
-    
+
     var getChalks = function (value) {
         var color = 'green';
         if (value < options.error) {
             color = 'red';
         } else if (value < options.warn) {
             color = 'yellow';
-        }  
+        }
         return {
             font: chalk[color],
             bg: chalk['bg' + (color.charAt(0).toUpperCase() + color.slice(1))]
         };
     };
-    
+
     var analyzeResults = function (file, results) {
         var stats = {};
         var metrics = results.metrics;
         var count = 0;
-        
+
         _.forOwn(options.thresholds, function (limit, name) {
             if (limit !== null && limit !== undefined) {
                 var value = metrics[name];
@@ -131,21 +132,21 @@ module.exports = function (grunt) {
                 }
             }
         });
-        
+
         //console.dir(metrics);
         //console.dir(stats);
-        
+
         var avg = _.reduce(stats, function (sum, stat, key) {
             return sum + stat.ratio;
         }, 0) / count;
-        
+
         // error
         hasErrors = hasErrors || avg < options.error;
-        
+
         var chalks = getChalks(avg);
-        
+
         grunt.log.writeln(chalks.font(pad(file)) + chalks.bg(pad(avg.toFixed(2), 8, true)));
-        
+
         if (options.outputMetrics) {
              _.forOwn(stats, function (stat, name) {
                  if (options.outputMetrics === 'warn' || options.outputMetrics === 'error') {
@@ -155,7 +156,7 @@ module.exports = function (grunt) {
                  }
                  var chalks = getChalks(stat.ratio);
                  grunt.log.writeln(
-                    chalks.font(pad('  ' + name)) + 
+                    chalks.font(pad('  ' + name)) +
                     chalks.bg(pad(stat.ratio.toFixed(2), 8, true)) +
                     '  ' + stat.result + ' / ' + options.thresholds[name]
                 );
@@ -163,9 +164,9 @@ module.exports = function (grunt) {
              grunt.log.writeln();
         }
     };
-    
+
     grunt.log.writeln();
-    
+
     async.eachSeries(sources, function (file, nextFileObj) {
         fs.readFile(file, defaults.encoding, function (err, css) {
             if (err) {
@@ -179,6 +180,19 @@ module.exports = function (grunt) {
                 nextFileObj();
                 return;
                }
+
+               if(options.showDuplicateSelectors === true) {
+                 var duplicates = results.offenders.duplicatedSelectors;
+
+                 if(duplicates !== undefined && duplicates !== null){
+                   var countDuplicates = duplicates.length;
+                   grunt.log.writeln('Duplicate selectors: ' + countDuplicates);
+
+                   for(var i=0; i<countDuplicates; i++){
+                     grunt.log.writeln(duplicates[i]);
+                   }
+                 }
+              }
                analyzeResults(file, results);
                nextFileObj();
            });
