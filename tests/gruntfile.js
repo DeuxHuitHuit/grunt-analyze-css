@@ -14,6 +14,7 @@ module.exports = function (grunt) {
 			},
 			options: {
 				outputMetrics: 'error',
+				outputDuplicateSelectors: true,
 				thresholds: {
 					
 				}

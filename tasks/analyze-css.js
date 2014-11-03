@@ -24,6 +24,7 @@ module.exports = function (grunt) {
 		error: 0.8,
 		padLimit: 40,
 		outputMetrics: false, // can be 'warn' or 'error'
+		outputDuplicateSelectors: false,
 		softFail: false,
 		thresholds: { // all values are maximum values
 			redundantBodySelectors: 0,
@@ -156,7 +157,14 @@ module.exports = function (grunt) {
 				});
 				grunt.log.writeln();
 			}
-			
+			if (options.outputDuplicateSelectors && !!results.offenders.duplicatedSelectors) {
+				var count = results.offenders.duplicatedSelectors.length;
+				grunt.log.writeln(chalk.red('Found ' + count + ' duplicate selectors!'));
+				_.forEach(results.offenders.duplicatedSelectors, function (sel) {
+					grunt.log.writeln(sel);
+				});
+				grunt.log.writeln();
+			}
 		};
 		
 		grunt.log.writeln();
