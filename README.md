@@ -86,6 +86,9 @@ Possible values:
 
 This options will output duplicated selectors in stdout.
 
+Possible values:
+> true, false
+
 ### softFail: false
 
 Prevents the grunt task to be halted if this task failed.
