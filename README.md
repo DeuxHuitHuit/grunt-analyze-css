@@ -60,7 +60,7 @@ Possible values:
 ### error: 0.8
 
 The score at which errors are thrown. Any metric that is below this mark will
-issue an errror.
+issue an error.
 
 Possible values:
 > 0...1
@@ -77,10 +77,14 @@ Possible values:
 This options controls if and how metrics are shown to the screen.
 By default only the global score of each css document is shown.
 If set to true, ever metric score will show up. You can limit the
-ouput to set a cap on output by usign 'warn' or 'error'.
+output to set a cap on output by using 'warn' or 'error'.
 
 Possible values:
 > true, false, 'warn', 'error'
+
+### outputDuplicateSelectors: false
+
+This options will output duplicated selectors in stdout.
 
 ### softFail: false
 
@@ -100,7 +104,7 @@ and issue warning and errors if they surpass warn/error levels.
 Possible values:
 > See [analyze-css](https://github.com/macbre/analyze-css) readme file or 
 the [defaults in the source code](https://github.com/DeuxHuitHuit/grunt-contrib-analyze-css/blob/master/tasks/analyze-css.js#L20).
-      
+
 ## Credits
 
 Made with love in Montréal by <http://deuxhuithuit.com>
