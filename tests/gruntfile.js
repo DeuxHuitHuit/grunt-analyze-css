@@ -10,7 +10,10 @@ module.exports = function (grunt) {
 					'bootstrap.css',
 					'ie.css',
 					'symphony.css'
-				]
+				],
+				options: {
+					reportFile: 'report.json'
+				}
 			},
 			options: {
 				outputMetrics: 'error',

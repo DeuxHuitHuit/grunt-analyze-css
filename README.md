@@ -108,6 +108,17 @@ Possible values:
 > See [analyze-css](https://github.com/macbre/analyze-css) readme file or 
 the [defaults in the source code](https://github.com/DeuxHuitHuit/grunt-contrib-analyze-css/blob/master/tasks/analyze-css.js#L20).
 
+### reportFile
+
+By default `false` which disables writing the report to a file. In the case of a `string`, it will be
+used as a file path where the report is written in the format given in `options.reportFormat`.
+
+### reportFormat
+
+A `string`, which can be either `json` (default) or `text`, that determines the format of the `options.reportFile`.
+
+JSON will be pretty printed, with two character indentation.
+
 ## Credits
 
 Made with love in Montréal by <http://deuxhuithuit.com>
