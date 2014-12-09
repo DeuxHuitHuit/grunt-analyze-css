@@ -56,7 +56,9 @@ module.exports = function (grunt) {
 			rules: 600,
 			selectors: 2000,
 			declarations: 2000
-		}
+		},
+		reportFile: false,
+		reportFormat: 'json'
 	};
 	
 	grunt.registerMultiTask('analyzecss', 'Analyze your css', function() {
@@ -65,7 +67,8 @@ module.exports = function (grunt) {
 		var options = this.options(defaults);
 		var sources = this.data.sources;
 		var hasErrors = false;
-		
+		var resultCollection = {};
+
 		// fix thresholds
 		options.thresholds = options.thresholds || {};
 		_.defaults(options.thresholds, defaults.thresholds);
@@ -87,6 +90,9 @@ module.exports = function (grunt) {
 		};
 		
 		var end = function () {
+			if (options.reportFile) {
+				grunt.file.write(options.reportFile, JSON.stringify(resultCollection, null, '  '));
+			}
 			grunt.log.writeln();
 			if (hasErrors) {
 					grunt[options.softFail ? 'log' : 'fail'].warn('Done, with errors.');
@@ -182,6 +188,7 @@ module.exports = function (grunt) {
 						nextFileObj();
 						return;
 					}
+					resultCollection[file] = results;
 					analyzeResults(file, results);
 					nextFileObj();
 				});
