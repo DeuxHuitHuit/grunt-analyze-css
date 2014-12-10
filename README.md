@@ -1,4 +1,4 @@
-# grunt-contrib-analyze-css  - v0.2.x
+# grunt-analyze-css  - v1.0.x
 
 > Grunt task that analyze your css with [analyze-css](https://github.com/macbre/analyze-css) 
 and compare the results to a user-defined benchmark.
@@ -7,7 +7,7 @@ This plugin requires Grunt ^0.4.5
 
 ## Installation
 
-`npm i grunt-contrib-analyze-css --save-dev`
+`npm i grunt-analyze-css --save-dev`
 
 ## Analyze css task
 
@@ -106,7 +106,7 @@ and issue warning and errors if they surpass warn/error levels.
 
 Possible values:
 > See [analyze-css](https://github.com/macbre/analyze-css) readme file or 
-the [defaults in the source code](https://github.com/DeuxHuitHuit/grunt-contrib-analyze-css/blob/master/tasks/analyze-css.js#L20).
+the [defaults in the source code](https://github.com/DeuxHuitHuit/grunt-analyze-css/blob/master/tasks/analyze-css.js#L20).
 
 ## Credits
 

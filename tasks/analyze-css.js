@@ -1,6 +1,6 @@
 /*
- * grunt-contrib-analyze-css
- * https://github.com/DeuxHuitHuit/grunt-contrib-analyze-css
+ * grunt-analyze-css
+ * https://github.com/DeuxHuitHuit/grunt-analyze-css
  * http://gruntjs.com/
  *
  * Copyright (c) 2014 Deux Huit Huit, contributors

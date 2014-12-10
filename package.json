@@ -1,5 +1,5 @@
 {
-  "name": "grunt-contrib-analyze-css",
+  "name": "grunt-analyze-css",
   "version": "0.2.0",
   "description": "Grunt task that analyze your css with analyze-css and compare the results to a user-defined benchmark",
   "main": "tasks/analyze-css.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/DeuxHuitHuit/grunt-contrib-analyze-css.git"
+    "url": "git://github.com/DeuxHuitHuit/grunt-analyze-css.git"
   },
   "keywords": [
     "css",
@@ -18,7 +18,7 @@
   "author": "Deux Huit Huit",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DeuxHuitHuit/grunt-contrib-analyze-css/issues"
+    "url": "https://github.com/DeuxHuitHuit/grunt-analyze-css/issues"
   },
   "dependencies": {
     "analyze-css": "^0.4.0",
