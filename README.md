@@ -130,7 +130,7 @@ Possible values:
 
 ## Credits
 
-Made with love in Montréal by <http://deuxhuithuit.com>
+Made with love in Montréal by <https://deuxhuithuit.com>
 
 Licensed under the MIT License: <http://deuxhuithuit.mit-license.org>
 
