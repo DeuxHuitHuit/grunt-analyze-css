@@ -3,7 +3,7 @@
 > Grunt task that analyze your css with [analyze-css](https://github.com/macbre/analyze-css) 
 and compare the results to a user-defined benchmark.
 
-This plugin requires Grunt ^0.4.0
+This plugin requires Grunt ^0.4.5
 
 ## Installation
 
