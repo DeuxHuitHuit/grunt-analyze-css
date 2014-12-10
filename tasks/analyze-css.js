@@ -65,7 +65,7 @@ module.exports = function (grunt) {
 		var done = this.async();
 		var analyzer = require( 'analyze-css');
 		var options = this.options(defaults);
-		var sources = this.data.sources;
+		var sources = this.filesSrc;
 		var hasErrors = false;
 		var resultCollection = {};
 

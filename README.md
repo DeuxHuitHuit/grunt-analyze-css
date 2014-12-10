@@ -13,13 +13,19 @@ This plugin requires Grunt ^0.4.5
 
 *Run this task with the `grunt analyzecss` command.*
 
+### Multi-task
+
+`analyze-css` is a [multi-task](http://gruntjs.com/creating-tasks#multi-tasks) so it is possible
+to define global files and options, and then use specific values for specific targets.
+
 ### Example
 
 ````javascript
 grunt.initConfig({
     analyzecss: {
+        files: ['stylesheet.css']
         prod: {
-            sources: ['stylesheet.css']
+            // optional target specific options
         },
         options: {
             outputMetrics: 'error',

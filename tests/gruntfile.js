@@ -4,13 +4,13 @@ module.exports = function (grunt) {
 
 	grunt.initConfig({
 		analyzecss: {
+			files: [
+				'empty.css',
+				'bootstrap.css',
+				'ie.css',
+				'symphony.css'
+			],
 			prod: {
-				sources: [
-					'empty.css',
-					'bootstrap.css',
-					'ie.css',
-					'symphony.css'
-				],
 				options: {
 					reportFile: 'report.json'
 				}
