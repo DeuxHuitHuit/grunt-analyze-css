@@ -23,9 +23,12 @@ grunt.initConfig({
         },
         options: {
             outputMetrics: 'error',
+            analyzecss: {
+                // analyzecss specific options
+            }
             thresholds: {
-                
-            }  
+                // custom thresholds values
+            }
         }
     }
 });
