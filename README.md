@@ -1,4 +1,4 @@
-# grunt-analyze-css  - v1.0.x
+# grunt-analyze-css - v1.0.x [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![npm version](https://badge.fury.io/js/grunt-analyze-css.svg)](http://badge.fury.io/js/grunt-analyze-css) [![David DM](https://david-dm.org/DeuxHuitHuit/grunt-analyze-css.svg?style=flat)](https://david-dm.org/DeuxHuitHuit/grunt-analyze-css#info=dependencies) [![David DM](https://david-dm.org/DeuxHuitHuit/grunt-analyze-css/dev-status.svg?style=flat)](https://david-dm.org/DeuxHuitHuit/grunt-analyze-css#info=devDependencies)
 
 > Grunt task that analyze your css with [analyze-css](https://github.com/macbre/analyze-css) 
 and compare the results to a user-defined benchmark.
