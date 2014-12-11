@@ -165,9 +165,9 @@ module.exports = function (grunt) {
 			}
 			if (options.outputDuplicateSelectors && !!results.offenders.duplicatedSelectors) {
 				var count = results.offenders.duplicatedSelectors.length;
-				grunt.log.writeln(chalk.red('Found ' + count + ' duplicate selectors!'));
+				grunt.log.writeln('Found ' + count + ' duplicate selectors in ' + file);
 				_.forEach(results.offenders.duplicatedSelectors, function (sel) {
-					grunt.log.writeln(sel);
+					grunt.log.writeln(chalk.red(sel.message));
 				});
 				grunt.log.writeln();
 			}
