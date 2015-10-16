@@ -21,10 +21,10 @@
     "url": "https://github.com/DeuxHuitHuit/grunt-analyze-css/issues"
   },
   "dependencies": {
-    "analyze-css": "^0.8.0",
-    "async": "~0.9.0",
-    "chalk": "^0.5.1",
-    "lodash": "~2.4.1"
+    "analyze-css": "^0.10.2",
+    "async": "~1.4.2",
+    "chalk": "^1.1.1",
+    "lodash": "~3.10.1"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
