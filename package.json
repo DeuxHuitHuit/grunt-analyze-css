@@ -1,6 +1,6 @@
 {
   "name": "grunt-analyze-css",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Grunt task that analyze your css with analyze-css and compare the results to a user-defined benchmark",
   "main": "tasks/analyze-css.js",
   "scripts": {
