@@ -21,7 +21,7 @@
     "url": "https://github.com/DeuxHuitHuit/grunt-analyze-css/issues"
   },
   "dependencies": {
-    "analyze-css": "^0.10.2",
+    "analyze-css": "^0.12.10",
     "async": "~1.4.2",
     "chalk": "^1.1.1",
     "lodash": "~3.10.1"
